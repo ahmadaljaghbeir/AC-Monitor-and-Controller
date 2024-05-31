@@ -1,0 +1,84 @@
+/* styles.css */
+
+.container-custom {
+    background-color: #FFFFFF;
+}
+
+.button-custom {
+    background-color: #4c74af; /* Green button */
+    color: #FFFFFF;
+}
+
+.button-custom:hover {
+    background-color: #4c74af;
+}
+
+.input-custom {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.image-container {
+    background-image: url('../images/bg2.jpg'); /* Correct path to your image */
+    background-size: cover;
+    background-position: center;
+}
+
+.header {
+    background-color: #f3f4f6; /* Slightly darker than background */
+    color: #1a394d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-family: 'Arial', sans-serif;
+    color: #4c74af;
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    max-height: 100px;
+    margin-right: 10px;
+}
+
+.footer {
+    background-color: #1a394d;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+.about-us {
+    background-color: #f3f4f6;
+    padding: 2rem 1rem;
+}
+
+.about-us h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a394d;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.about-us .team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.about-us .team .member {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.about-us .team .member p {
+    color: #1a394d;
+}
