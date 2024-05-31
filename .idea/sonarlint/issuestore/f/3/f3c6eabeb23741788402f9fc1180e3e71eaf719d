@@ -1,0 +1,13 @@
+
+b
+java:S1170"!Make this final field static too.(‰á÷ÓüÿÿÿÿJ$21e73b80-0f2a-4366-9da9-8b5e4e0acc94
+h
+java:S5164"'Call "remove()" on "cipherThreadLocal".(•°‹æùÿÿÿÿJ$abb2d8ab-aed1-4f40-bec6-6af33e2f2037
+U
+java:S5542"Use a secure cipher mode.(ÚÐ ÆJ$cf9a7a70-fd66-4fc2-9a0f-0437944a4edc
+u
+java:S4719&"9Replace charset name argument with StandardCharsets.UTF_8(‰¥éúJ$ff0a2d73-5b5d-4825-ad56-a7af75afef5b
+o
+java:S1874D"3Remove this use of "deserialize"; it is deprecated.(ÛìŒ¨J$ad3ffba7-492f-4c48-bbca-d3a669fe4a81
+u
+java:S1068"4Remove this unused "encryptionCipher" private field.(‰á÷ÓüÿÿÿÿJ$66c516b8-7cd8-44ce-bbee-c69fcc360a52

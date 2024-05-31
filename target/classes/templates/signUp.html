@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started Now</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/signupStyle.css">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="header w-full py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+        <div class="flex items-center">
+            <img src="/images/logo.png" alt="logo" class="h-12 w-12 mr-2">
+            <h1 class="text-2xl font-bold">AC Monitor and Controller</h1>
+        </div>
+        <nav>
+            <a href="/" class="button-custom py-2 px-4 rounded mr-2">Home</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center">
+    <div class="bg-white w-full max-w-4xl shadow-md rounded-lg overflow-hidden flex">
+        <!-- Form Section -->
+        <div class="w-full md:w-1/2 p-8">
+            <h2 class="text-3xl font-bold mb-4">Get Started Now</h2>
+            <form id="signupForm">
+                <div class="flex mb-4">
+                    <div class="w-1/2 pr-2">
+                        <label class="block text-sm font-bold mb-2" for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" placeholder="Enter your first name"
+                               class="shadow appearance-none border rounded w-full py-2 px-3 input-custom leading-tight focus:outline-none focus:shadow-outline"
+                               required>
+                    </div>
+                    <div class="w-1/2 pl-2">
+                        <label class="block text-sm font-bold mb-2" for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" placeholder="Enter your last name"
+                               class="shadow appearance-none border rounded w-full py-2 px-3 input-custom leading-tight focus:outline-none focus:shadow-outline"
+                               required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-bold mb-2" for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 input-custom leading-tight focus:outline-none focus:shadow-outline"
+                           required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-bold mb-2" for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 input-custom leading-tight focus:outline-none focus:shadow-outline"
+                           required oninput="validatePassword()">
+                    <p id="passwordHelp" class="text-xs text-gray-600 mt-2">
+                        Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+                    </p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-bold mb-2" for="date_of_birth">Date of Birth</label>
+                    <input type="date" id="date_of_birth" name="date_of_birth"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 input-custom leading-tight focus:outline-none focus:shadow-outline"
+                           required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-bold mb-2" for="phone_number">Phone Number</label>
+                    <input type="tel" id="phone_number" name="phone_number" placeholder="+971 5x xxx xxxx"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 input-custom leading-tight focus:outline-none focus:shadow-outline"
+                           required oninput="formatPhoneNumber()">
+                </div>
+                <div class="mb-6">
+                    <button type="button" onclick="submitForm()"
+                            class="w-full py-2 px-4 rounded button-custom focus:outline-none focus:shadow-outline">
+                        SignUp
+                    </button>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-600">Have an account? <a href="login"
+                                                                 class="text-blue-500 hover:underline">Login</a></p>
+                </div>
+            </form>
+        </div>
+        <!-- Image Section -->
+        <div class="hidden md:block md:w-1/2 image-container"></div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2024 AC Monitor and Controller. All rights reserved.</p>
+</footer>
+
+<script>
+    function validatePassword() {
+        const passwordInput = document.getElementById('password');
+        const passwordHelp = document.getElementById('passwordHelp');
+        const password = passwordInput.value;
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if (!regex.test(password)) {
+            passwordHelp.classList.add('text-red-500');
+            passwordHelp.classList.remove('text-gray-600');
+        } else {
+            passwordHelp.classList.add('text-gray-600');
+            passwordHelp.classList.remove('text-red-500');
+        }
+    }
+
+    function formatPhoneNumber() {
+        const phoneInput = document.getElementById('phone_number');
+        let phoneNumber = phoneInput.value.replace(/\D/g, '');
+
+        if (phoneNumber.startsWith('9715')) {
+            phoneNumber = '+' + phoneNumber.substring(0, 3) + ' ' + phoneNumber.substring(3, 4) + ' ' + phoneNumber.substring(4, 7) + ' ' + phoneNumber.substring(7, 11);
+        } else if (phoneNumber.startsWith('5')) {
+            phoneNumber = '+971 5' + phoneNumber.substring(1, 2) + ' ' + phoneNumber.substring(2, 5) + ' ' + phoneNumber.substring(5, 9);
+        }
+
+        phoneInput.value = phoneNumber;
+    }
+
+    function submitForm() {
+        var form = document.getElementById("signupForm");
+        var formData = {
+            first_name: form.first_name.value,
+            last_name: form.last_name.value,
+            email: form.email.value,
+            password: form.password.value,
+            date_of_birth: form.date_of_birth.value,
+            phone_number: form.phone_number.value
+        };
+
+        fetch("/createUser", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                window.location.href = "/login";
+            })
+            .catch(error => {
+                console.log("Error:", error);
+            });
+    }
+</script>
+</body>
+</html>
